@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexglobal/routes/profile/profile_page.dart';
 import '../company_profile/company_profile.dart';
 import '../notifications_screen/notifications_screen.dart';
 import '../messages_screen/messages_screen.dart';
@@ -92,8 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return Center(
-                            child: Icon(Icons.image_not_supported, 
-                              size: 40, 
+                            child: Icon(
+                              Icons.image_not_supported,
+                              size: 40,
                               color: Colors.grey[400],
                             ),
                           );
@@ -145,9 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 8,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _currentPage == index 
-                      ? Colors.white 
-                      : Colors.white.withOpacity(0.5),
+                    color: _currentPage == index
+                        ? Colors.white
+                        : Colors.white.withOpacity(0.5),
                   ),
                 ),
               ),
@@ -167,43 +169,93 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Map<String, dynamic>> platforms = const [
     {
       'name': 'TikTok',
-      'services': ['TikTok likes', 'TikTok followers', 'TikTok views', 'TikTok saves'],
+      'services': [
+        'TikTok likes',
+        'TikTok followers',
+        'TikTok views',
+        'TikTok saves'
+      ],
     },
     {
       'name': 'Instagram',
-      'services': ['Instagram followers', 'Instagram likes', 'Instagram views', 'Instagram saves'],
+      'services': [
+        'Instagram followers',
+        'Instagram likes',
+        'Instagram views',
+        'Instagram saves'
+      ],
     },
     {
       'name': 'YouTube',
-      'services': ['YouTube subscribers', 'YouTube views', 'YouTube likes', 'YouTube comments'],
+      'services': [
+        'YouTube subscribers',
+        'YouTube views',
+        'YouTube likes',
+        'YouTube comments'
+      ],
     },
     {
       'name': 'Twitter',
-      'services': ['Twitter followers', 'Twitter likes', 'Twitter retweets', 'Twitter views'],
+      'services': [
+        'Twitter followers',
+        'Twitter likes',
+        'Twitter retweets',
+        'Twitter views'
+      ],
     },
     {
       'name': 'LinkedIn',
-      'services': ['LinkedIn connections', 'LinkedIn followers', 'LinkedIn engagement', 'LinkedIn posts'],
+      'services': [
+        'LinkedIn connections',
+        'LinkedIn followers',
+        'LinkedIn engagement',
+        'LinkedIn posts'
+      ],
     },
     {
       'name': 'Facebook',
-      'services': ['Facebook likes', 'Facebook followers', 'Facebook views', 'Facebook shares'],
+      'services': [
+        'Facebook likes',
+        'Facebook followers',
+        'Facebook views',
+        'Facebook shares'
+      ],
     },
     {
       'name': 'Instagram',
-      'services': ['Instagram followers', 'Instagram likes', 'Instagram views', 'Instagram saves'],
+      'services': [
+        'Instagram followers',
+        'Instagram likes',
+        'Instagram views',
+        'Instagram saves'
+      ],
     },
     {
       'name': 'Spotify',
-      'services': ['Spotify plays', 'Spotify followers', 'Spotify monthly listeners', 'Spotify playlists'],
+      'services': [
+        'Spotify plays',
+        'Spotify followers',
+        'Spotify monthly listeners',
+        'Spotify playlists'
+      ],
     },
     {
       'name': 'Snapchat',
-      'services': ['Snapchat followers', 'Snapchat views', 'Snapchat engagement', 'Snapchat stories'],
+      'services': [
+        'Snapchat followers',
+        'Snapchat views',
+        'Snapchat engagement',
+        'Snapchat stories'
+      ],
     },
     {
       'name': 'Boomplay',
-      'services': ['Boomplay plays', 'Boomplay followers', 'Boomplay downloads', 'Boomplay shares'],
+      'services': [
+        'Boomplay plays',
+        'Boomplay followers',
+        'Boomplay downloads',
+        'Boomplay shares'
+      ],
     },
   ];
 
@@ -213,7 +265,8 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 67, 160, 72),
-        title: const Text('Ninfex Global', style: TextStyle(color: Colors.white)),
+        title:
+            const Text('Ninfex Global', style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.white),
@@ -240,7 +293,12 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.person, color: Colors.white),
             onPressed: () {
-              // Handle profile
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfilePage(),
+                ),
+              ); // Handle profile
             },
           ),
         ],
@@ -283,7 +341,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const CompanyProfileScreen(),
+                                    builder: (context) =>
+                                        const CompanyProfileScreen(),
                                   ),
                                 );
                               },
@@ -295,16 +354,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Row(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(25),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
                                           child: Image.network(
                                             'https://t3.ftcdn.net/jpg/04/52/34/62/360_F_452346210_m6Ni5BJnosaqM7Is0wJh0fwJEvfx8XDH.jpg',
                                             width: 50,
                                             height: 50,
                                             fit: BoxFit.cover,
-                                            errorBuilder: (context, error, stackTrace) {
+                                            errorBuilder:
+                                                (context, error, stackTrace) {
                                               return CircleAvatar(
                                                 radius: 25,
-                                                backgroundColor: Colors.grey[200],
+                                                backgroundColor:
+                                                    Colors.grey[200],
                                                 child: Icon(
                                                   Icons.business,
                                                   color: Colors.grey[800],
@@ -316,7 +378,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         const SizedBox(width: 12),
                                         Expanded(
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Text(
                                                 platform['name'],
@@ -328,9 +391,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                               const SizedBox(height: 4),
-                                             
                                               const SizedBox(height: 4),
-                                              
                                             ],
                                           ),
                                         ),
@@ -341,7 +402,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           decoration: BoxDecoration(
                                             color: Colors.green[50],
-                                            borderRadius: BorderRadius.circular(12),
+                                            borderRadius:
+                                                BorderRadius.circular(12),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
@@ -352,7 +414,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 color: Colors.green[600],
                                               ),
                                               const SizedBox(width: 4),
-                                             
                                             ],
                                           ),
                                         ),
@@ -364,13 +425,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             // Products section
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Text(
                                     'Services:',
-                                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600),
                                   ),
                                   const SizedBox(height: 4),
                                   _CompanyProductsList(
@@ -383,7 +447,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             const SizedBox(height: 12),
-                            if (selectedService != null && 
+                            if (selectedService != null &&
                                 platform['services'].contains(selectedService))
                               _buildServiceForm(),
                           ],
@@ -511,8 +575,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: Row(
                         children: [
-                          Icon(Icons.location_on, 
-                            size: 14, 
+                          Icon(
+                            Icons.location_on,
+                            size: 14,
                             color: Colors.grey[600],
                           ),
                           const SizedBox(width: 4),
@@ -534,8 +599,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: Row(
                         children: [
-                          Icon(Icons.category, 
-                            size: 14, 
+                          Icon(
+                            Icons.category,
+                            size: 14,
                             color: Colors.grey[600],
                           ),
                           const SizedBox(width: 4),
@@ -558,7 +624,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Icon(Icons.verified_user,
+                    Icon(
+                      Icons.verified_user,
                       size: 14,
                       color: Colors.blue[600],
                     ),
@@ -575,7 +642,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  
                   'Products:',
                   style: TextStyle(
                     fontSize: 12,
@@ -640,8 +706,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: Row(
                         children: [
-                          Icon(Icons.location_on, 
-                            size: 14, 
+                          Icon(
+                            Icons.location_on,
+                            size: 14,
                             color: Colors.grey[600],
                           ),
                           const SizedBox(width: 4),
@@ -663,8 +730,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: Row(
                         children: [
-                          Icon(Icons.category, 
-                            size: 14, 
+                          Icon(
+                            Icons.category,
+                            size: 14,
                             color: Colors.grey[600],
                           ),
                           const SizedBox(width: 4),
@@ -687,7 +755,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Icon(Icons.verified_user,
+                    Icon(
+                      Icons.verified_user,
                       size: 14,
                       color: Colors.blue[600],
                     ),
@@ -881,9 +950,8 @@ class _HomeScreenState extends State<HomeScreen> {
             onChanged: (value) {
               final quantity = int.tryParse(value) ?? 0;
               final totalPrice = quantity * 1000;
-              priceController.text = quantity > 0 
-                  ? 'UGX ${totalPrice.toStringAsFixed(0)}'
-                  : '';
+              priceController.text =
+                  quantity > 0 ? 'UGX ${totalPrice.toStringAsFixed(0)}' : '';
             },
           ),
           const SizedBox(height: 16),
@@ -977,7 +1045,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
               hint: const Text('Select a country'),
               items: countries.map((String country) {
@@ -1063,21 +1132,16 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 children: [
                   _buildCountrySection(),
                   _buildFilterSection(
-                    title: 'Company Type',
-                    items: ['Importer', 'Exporter']
-                  ),
+                      title: 'Company Type', items: ['Importer', 'Exporter']),
                   _buildFilterSection(
-                    title: 'Company Category',
-                    items: ['Vehicles', 'Fruits & Vegetables', 'Medicine']
-                  ),
+                      title: 'Company Category',
+                      items: ['Vehicles', 'Fruits & Vegetables', 'Medicine']),
                   _buildFilterSection(
-                    title: 'Sort By',
-                    items: ['Best price', 'Best rating', 'Newly added']
-                  ),
+                      title: 'Sort By',
+                      items: ['Best price', 'Best rating', 'Newly added']),
                   _buildFilterSection(
-                    title: 'Verification Status',
-                    items: ['Verified', 'Not Verified', 'Any']
-                  ),
+                      title: 'Verification Status',
+                      items: ['Verified', 'Not Verified', 'Any']),
                 ],
               ),
             ),
@@ -1134,13 +1198,16 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                     side: BorderSide(
-                      color: isSelected ? Colors.green[600]! : Colors.grey[300]!,
+                      color:
+                          isSelected ? Colors.green[600]! : Colors.grey[300]!,
                     ),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   labelStyle: TextStyle(
                     color: isSelected ? Colors.green[700] : Colors.grey[800],
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                    fontWeight:
+                        isSelected ? FontWeight.w600 : FontWeight.normal,
                     fontSize: 14,
                   ),
                   elevation: 0,
@@ -1185,11 +1252,12 @@ class _CompanyProductsListState extends State<_CompanyProductsList> {
   @override
   Widget build(BuildContext context) {
     final allProducts = widget.products;
-    final displayProducts = widget.selectedService != null || isExpanded 
-        ? allProducts 
+    final displayProducts = widget.selectedService != null || isExpanded
+        ? allProducts
         : allProducts.take(initialProductCount).toList();
     final remainingCount = allProducts.length - initialProductCount;
-    final showExpandButton = remainingCount > 0 && widget.selectedService == null;
+    final showExpandButton =
+        remainingCount > 0 && widget.selectedService == null;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1200,23 +1268,30 @@ class _CompanyProductsListState extends State<_CompanyProductsList> {
           crossAxisAlignment: WrapCrossAlignment.start,
           spacing: 4,
           runSpacing: 4,
-          children: displayProducts.map((product) => GestureDetector(
-            onTap: () => widget.onServiceSelected(product),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: widget.selectedService == product ? Colors.green[100] : Colors.grey[200],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                product,
-                style: TextStyle(
-                  color: widget.selectedService == product ? Colors.green[800] : Colors.grey[800],
-                  fontSize: 12,
-                ),
-              ),
-            ),
-          )).toList(),
+          children: displayProducts
+              .map((product) => GestureDetector(
+                    onTap: () => widget.onServiceSelected(product),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: widget.selectedService == product
+                            ? Colors.green[100]
+                            : Colors.grey[200],
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        product,
+                        style: TextStyle(
+                          color: widget.selectedService == product
+                              ? Colors.green[800]
+                              : Colors.grey[800],
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ))
+              .toList(),
         ),
         if (showExpandButton) ...[
           const SizedBox(height: 4),
